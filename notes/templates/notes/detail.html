@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Note | {{ note.title }}{% endblock title %}
+
+{% block body %}
+  <h1>{{ note.title }}</h1>
+  <div class="note-date">{{ note.created_at }}</div>
+  <p>{{ note.content }}</p>
+
+  <a href="{% url 'notes:home' %}">Back to 🏠</a>
+{% endblock body %}

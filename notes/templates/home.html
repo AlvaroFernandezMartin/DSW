@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}ToFO | Home{% endblock title %}
+
+{% block body %}
+  <h1>Todo: the ultimate tech blog!</h1>
+  <p>Check out our great notes below...</p>
+  <p>
+    Total notes: <strong>{{ num_notes }}</strong> post{{ num_notes|pluralize }}
+    {% if num_notes > 1 %}
+      🎉
+    {% else %}
+      😔
+    {% endif %}
+  </p>
+  {% for note in notes %}
+    <h2>{{ note.title }}</h2>
+    <div class="note-date">{{ note.created_at }}</div>
+    <p>{{ note.content|truncatewords:20 }} <a href="{% url 'notes:note_detail' note.slug %}">[Read more]</a></p>
+  {% endfor %}
+{% endblock body %}

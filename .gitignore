@@ -1,0 +1,5 @@
+# Automatically created by mypy
+.venv
+db.sqlite3
+*.pyc
+.mypy_cache
